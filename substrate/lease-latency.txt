@@ -1,0 +1,12 @@
+# AcquireLease + Close, 16 goroutines x 200 iterations each on their own key,
+# 200 expired rows already in the leases table. Local PostgreSQL 18 in Docker.
+
+== main (cleanup DELETE before every acquire)
+run 1: p50=2.11ms  p90=2.42ms  p99=3.36ms
+run 2: p50=2.11ms  p90=2.39ms  p99=2.93ms
+
+== branch (cleanup off the acquisition path)
+run 1: p50=1.55ms  p90=1.82ms  p99=2.59ms
+run 2: p50=1.57ms  p90=1.89ms  p99=2.66ms
+
+# One round trip fewer per acquisition: p50 -26%, p90 -23%.

@@ -1,0 +1,4 @@
+== main (cleanup DELETE before every acquire), run 2
+RESULT acquire+close over 3200 samples (16 goroutines x 200): p50=2.11ms p90=2.39ms p99=2.93ms
+== branch (cleanup off the acquisition path), run 2
+RESULT acquire+close over 3200 samples (16 goroutines x 200): p50=1.57ms p90=1.89ms p99=2.66ms

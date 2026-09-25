@@ -1,0 +1,24 @@
+$ REQUIRE_DOCKER=true go test ./cmd/ateapi/internal/store/atepg/ -run Lease -count=1 -v   # real PostgreSQL 18 via testcontainers
+--- PASS: TestAcquireLease_LeavesOtherKeysExpiredRows (2.62s)
+--- PASS: TestCleanupExpiredLeases_RemovesOnlyExpiredRows (0.02s)
+--- PASS: TestCleanupExpiredLeases_DrainsAcrossBatches (0.02s)
+--- PASS: TestCleanupExpiredLeases_SkipsLockedRows (0.02s)
+--- PASS: TestAcquireLease_ExpiresAfterHolderStops (0.72s)
+--- PASS: TestAcquireLease_ConcurrentTakeover (0.07s)
+PASS
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/store/atepg	3.825s
+
+$ REQUIRE_DOCKER=true go test ./cmd/ateapi/... -count=1   # every workflow that takes a lease
+ok  	github.com/agent-substrate/substrate/cmd/ateapi	0.087s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/ateletauth	0.013s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/authz	9.022s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/controlapi	45.731s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/controlapi/functionaltest	61.098s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/defaults	0.018s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/oidcjwt	0.550s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/scheduling	0.008s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/store	0.010s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/store/atepg	26.112s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/store/dockerenv	0.003s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/workercache	0.229s
+ok  	github.com/agent-substrate/substrate/cmd/ateapi/internal/workerservice	6.437s

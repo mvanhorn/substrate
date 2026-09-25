@@ -1,0 +1,9 @@
+file_count=1      WriteDisk 21ms      ReadDisk 6ms       size=8388608 sha256=8a7cc38e9a8fe391..
+  layout: one file
+  digests match: true
+file_count=100    WriteDisk 41ms      ReadDisk 8ms       size=8388608 sha256=fef0dc9d9643d17e..
+  layout: directory with 100 files (00000000=83887B ... 00000099=83886B)
+  digests match: true
+file_count=10000  WriteDisk 1.536s    ReadDisk 131ms     size=8388608 sha256=ed856dc23465b71c..
+  layout: directory with 10000 files (00000000=839B ... 00009999=838B)
+  digests match: true
